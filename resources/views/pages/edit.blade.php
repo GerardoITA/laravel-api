@@ -1,14 +1,14 @@
 @extends('layouts.main-layout')
 
 @section('content')
-    <h1>Create</h1>
+    <h1>Update</h1>
     <form action="" method="POST">
      @csrf
         <label for="name">Name</label>
         <input type="text" name="name">
         <br>
         <label for="year">Year</label>
-        <input type="number" name="year">
+        <input type="number" name="year" >
         <br>
         <label for="cashout">Cashout</label>
         <input type="number" name="cashout">
@@ -26,6 +26,6 @@
             <label for="tags">{{ $tag -> name }}</label>
             <br>            
         @endforeach
-        <input type="submit" value="CREATE MOVIE">   
+        <input type="submit" value="EDIT MOVIE">   
     </form>
 @endsection

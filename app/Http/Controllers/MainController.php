@@ -23,6 +23,33 @@ class MainController extends Controller
 
         return view('pages.movie', compact('movie'));
     }
+    public function edit(Movie $movie)
+    {   
+        $genres = Genre::all();
+        $tags = Tag::all();
+
+        return view('pages.edit', compact('movie', 'genres', 'tags'));
+    }
+    public function update(Request $request, Movie $movie){
+        $data = $request->validate([
+            'name' => 'required|string|max:64',
+            'year' => 'nullable|integer',
+            'cashout' => 'required',
+            'genre_id' => 'required|integer',
+            'tags' => 'required|array'
+        ]);
+
+        $movie -> update($data);
+        $genre = Genre::find($data['genre_id']);
+
+        $movie->genre()->associate($genre);
+        $movie->save();
+
+        $tags = Tag::find($data['tags']);
+        $movie->tags()->sync($tags);
+
+        return redirect()->route('home');
+    }
     public function movies()
     {
         $movies = Movie::all();
