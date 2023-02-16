@@ -17,6 +17,12 @@ class MainController extends Controller
 
         return view('pages.home', compact('movies', 'genres', 'tags'));
     }
+    public function movie($id)
+    {
+        $movie = Movie::find($id);
+
+        return view('pages.movie', compact('movie'));
+    }
     public function movies()
     {
         $movies = Movie::all();

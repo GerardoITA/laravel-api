@@ -8,7 +8,9 @@
         <h2>{{ $genre -> name}}</h2>
         @foreach ($movies as $movie )
             @if ($movie -> genre_id === $genre -> id )
-                <h6>{{ $movie -> name}} - {{ $movie -> year}}</h6>
+                <h6>
+                    <a href="/movies/{{ $movie -> id}}">{{ $movie -> name}} - {{ $movie -> year}}</a>
+                </h6>
             @endif           
         @endforeach
         <hr>

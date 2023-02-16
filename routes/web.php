@@ -22,3 +22,5 @@ Route::get('/create', [MainController::class, 'create'])
     ->name('create');
 Route::post('/create', [MainController::class, 'store'])
     ->name('store');
+Route::get('/movies/{id}', [MainController::class, 'movie'])
+    ->name('movie');
