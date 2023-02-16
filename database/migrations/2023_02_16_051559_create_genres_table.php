@@ -9,10 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('genres', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 32);
+            $table->string('description', 512);
             $table->timestamps();
         });
     }
@@ -20,7 +22,7 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('genres');
     }

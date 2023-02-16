@@ -17,7 +17,8 @@ class GenreFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->word(),
+            'description' => fake()->paragraph(2),
         ];
     }
 }
