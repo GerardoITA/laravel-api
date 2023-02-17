@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\MainController;
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +30,6 @@ Route::get('/movies/delete/{movie}', [MainController::class, 'delete'])
 //     ->name('edit');
 // Route::post('/edit/{id}', [MainController::class, 'update'])
 //     ->name('update');
+
+
+Route::get('/api/v1/test', [ApiController::class, 'test']);
