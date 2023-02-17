@@ -5,7 +5,7 @@
     <form action="" method="POST">
      @csrf
         <label for="name">Name</label>
-        <input type="text" name="name">
+        <input type="text" name="name" value="{{ $movie -> name}}">
         <br>
         <label for="year">Year</label>
         <input type="number" name="year" >

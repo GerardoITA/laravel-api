@@ -26,10 +26,10 @@ Route::get('/movies/{id}', [MainController::class, 'movie'])
     ->name('movie');
 Route::get('/movies/delete/{movie}', [MainController::class, 'delete'])
     ->name('delete');
-// Route::get('/edit/{id}', [MainController::class, 'edit'])
-//     ->name('edit');
-// Route::post('/edit/{id}', [MainController::class, 'update'])
-//     ->name('update');
+Route::get('/edit/{movie}', [MainController::class, 'edit'])
+    ->name('edit');
+Route::post('/edit/{movie}', [MainController::class, 'update'])
+    ->name('update');
 
 
 Route::get('/api/v1/test', [ApiController::class, 'test']);

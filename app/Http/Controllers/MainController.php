@@ -38,13 +38,14 @@ class MainController extends Controller
         return view('pages.edit', compact('movie', 'genres', 'tags'));
     }
     public function update(Request $request, Movie $movie){
-        $data = $request->validate([
-            'name' => 'required|string|max:64',
-            'year' => 'nullable|integer',
-            'cashout' => 'required',
-            'genre_id' => 'required|integer',
-            'tags' => 'required|array'
-        ]);
+        $data = $request->all();
+        // ->validate([
+        //     'name' => 'required|string|max:64',
+        //     'year' => 'nullable|integer',
+        //     'cashout' => 'required',
+        //     'genre_id' => 'required|integer',
+        //     'tags' => 'required|array'
+        // ]);
 
         $genre = Genre::find($data['genre_id']);
         $movie -> update($data);
