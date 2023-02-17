@@ -9,7 +9,7 @@
         @foreach ($movies as $movie )
             @if ($movie -> genre_id === $genre -> id )
                 <h6>
-                    <a href="/movies/{{ $movie -> id}}">{{ $movie -> name}} - {{ $movie -> year}}</a> - <a href="/edit/{{ $movie -> id}}">Edit</a>
+                    <a href="/movies/{{ $movie -> id}}">{{ $movie -> name}} - {{ $movie -> year}}</a> - <a href="{{ route('delete', $movie) }}">Delete</a>
                 </h6>
             @endif           
         @endforeach

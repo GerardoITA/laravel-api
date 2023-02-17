@@ -22,7 +22,11 @@
         <br>
         <h3>Tags</h3>
         @foreach ($tags as $tag)
-            <input type="checkbox" name="tags[]" value="{{ $tag -> id }}">
+            <input type="checkbox" name="tags[]" value="{{ $tag -> id }}" id="{{ $tag -> id }}"
+            @foreach ($movie -> tags as $movieTag)
+                        @checked ($movieTag -> id == $tag -> id)
+            @endforeach
+            >
             <label for="tags">{{ $tag -> name }}</label>
             <br>            
         @endforeach

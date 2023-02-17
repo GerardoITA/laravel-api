@@ -23,6 +23,13 @@ class MainController extends Controller
 
         return view('pages.movie', compact('movie'));
     }
+    public function delete(Movie $movie) 
+    {
+        $movie -> tags() -> sync([]);
+        $movie->delete();
+        
+        return redirect()->route('home');
+    }
     public function edit(Movie $movie)
     {   
         $genres = Genre::all();
@@ -39,9 +46,9 @@ class MainController extends Controller
             'tags' => 'required|array'
         ]);
 
-        $movie -> update($data);
         $genre = Genre::find($data['genre_id']);
-
+        $movie -> update($data);
+        
         $movie->genre()->associate($genre);
         $movie->save();
 

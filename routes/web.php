@@ -24,7 +24,9 @@ Route::post('/create', [MainController::class, 'store'])
     ->name('store');
 Route::get('/movies/{id}', [MainController::class, 'movie'])
     ->name('movie');
-Route::get('/edit/{id}', [MainController::class, 'edit'])
-    ->name('edit');
-Route::post('/edit/{id}', [MainController::class, 'update'])
-    ->name('update');
+Route::get('/movies/delete/{movie}', [MainController::class, 'delete'])
+    ->name('delete');
+// Route::get('/edit/{id}', [MainController::class, 'edit'])
+//     ->name('edit');
+// Route::post('/edit/{id}', [MainController::class, 'update'])
+//     ->name('update');
