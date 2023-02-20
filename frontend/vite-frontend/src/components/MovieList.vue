@@ -14,14 +14,19 @@ export default {
     }
   },
   methods: {
-    debug() { console.log(store.movieList)}
+    debug() {
+      console.log(store.movieList);
+      console.log(store.genreList);
+      console.log(store.tagList);
+    }
 
   },
   mounted() {
     Axios.get(store.movieAPI)
       .then(res => {
-        store.movieList = res.data.response;
-        
+        store.movieList = res.data.response.movies;
+        store.genreList = res.data.response.genres;
+        store.tagList = res.data.response.tags;
       });
   }
 }
@@ -29,11 +34,16 @@ export default {
 
 <template>
   <div class="contenitore">
-    <Movie class="cartaa" v-for="movie in store.movieList"
-      :nome="movie.name"
-    >
+    <button @click="debug()">Debug</button> 
+    <a :href="'/Movie/'+ movie.id" v-for="movie in store.movieList" :key="movie.id">
+        <Movie 
+          :nome="movie.name"
+        > 
     </Movie>
-    <!-- <button @click="debug()">Debug</button> -->
+
+    </a>
+    
+   
   </div>
 
 </template>
@@ -43,8 +53,7 @@ export default {
 .contenitore {
  display: flex;
  gap: 25px;
-}
-.cartaa {
-  width: 350px;
+ width: 1200px;
+ flex-wrap: wrap;
 }
 </style>

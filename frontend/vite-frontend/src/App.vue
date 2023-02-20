@@ -1,10 +1,8 @@
 <script>
-import MovieList from './components/MovieList.vue'
 
 export default {
   name: "App",
   components: {
-    MovieList,
   },
   data() {
     return {
@@ -13,14 +11,11 @@ export default {
   methods: {
 
   },
-  mounted(){
-    console.log('Hello World')
-  }
 }  
 </script>
 
 <template>
-<MovieList></MovieList>
+  <router-view/>
 </template>
 
 <style lang="scss" scoped>

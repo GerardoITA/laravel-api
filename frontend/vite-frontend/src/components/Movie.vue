@@ -15,19 +15,18 @@ export default {
 </script>
 
 <template>
-<div class="carta">
-    <h4>{{ nome }}</h4>
-</div>
+    <div class="movie">
+        <h4> {{ nome }} </h4>
+    </div>
+
 </template>
 
 <style>
-.carta {
-  width: 350px;
-  border: 1px solid black;
-  border-radius: 25px;
-  height: 400px;
-  background-color: lightgrey;
-
-
-}
+.movie {
+    min-width: 250px;
+    min-height: 400px;
+    border: 1px solid black;
+    border-radius: 25px;
+    background-color: lightgrey;
+ }
 </style>
