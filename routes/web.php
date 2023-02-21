@@ -33,3 +33,4 @@ Route::post('/edit/{movie}', [MainController::class, 'update'])
 
 
 Route::get('/api/v1/test', [ApiController::class, 'test']);
+Route::get('/api/v1/make', [ApiController::class, 'createMovie']);

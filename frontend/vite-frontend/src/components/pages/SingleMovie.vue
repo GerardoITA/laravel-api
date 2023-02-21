@@ -1,6 +1,6 @@
 <script>
 import { store } from '../../store';
-import Axios from 'axios';
+import axios from 'axios';
 import Movie from '../Movie.vue';
 export default {
     name: "SingleMovie",
@@ -19,7 +19,7 @@ export default {
         }
     },
     mounted() {
-        Axios.get(store.movieAPI)
+        axios.get(store.movieAPI)
             .then(res => {
                 store.movieList = res.data.response.movies;
                 store.genreList = res.data.response.genres;
@@ -32,7 +32,8 @@ export default {
 <template>
     <a href="/">Go back</a>
     <Movie
-    :nome="store.movieList[currentId]"
+        :nome="store.movieList[currentId]?.name"
+        :id="store.movieList[currentId]?.id"
     ></Movie>
     <button @click="debug()">Test</button>
 </template>

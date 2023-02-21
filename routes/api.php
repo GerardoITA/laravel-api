@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route:: get ('/api/v1/test', [ApiController:: class, 'test']);
+Route::get ('/api/v1/test', [ApiController:: class, 'test']);
+
+Route::get('/api/v1/make', [ApiController::class, 'createMovie']);

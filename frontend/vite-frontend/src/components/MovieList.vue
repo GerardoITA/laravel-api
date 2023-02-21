@@ -33,11 +33,14 @@ export default {
 </script>
 
 <template>
+  <a href="/create">Crea un film</a>
+  <button @click="debug()">Debug</button> 
   <div class="contenitore">
-    <button @click="debug()">Debug</button> 
-    <a :href="'/Movie/'+ movie.id" v-for="movie in store.movieList" :key="movie.id">
+    
+    <a :href="'/movie/'+ movie.id" v-for="movie in store.movieList" :key="movie.id">
         <Movie 
           :nome="movie.name"
+          :id="movie.id"
         > 
     </Movie>
 
