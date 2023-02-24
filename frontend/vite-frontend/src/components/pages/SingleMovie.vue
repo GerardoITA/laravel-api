@@ -10,12 +10,12 @@ export default {
     data() {
         return {
             store,
-            currentId : ( this.$route.params.id ) - 1 ,
+            currentId : this.$route.params.id,
         }
     },
     methods: {
         debug() {
-            console.log(store.movieList[this.currentId])
+            console.log(store.movieList.find(e => e.id == this.currentId));
         }
     },
     mounted() {
@@ -32,8 +32,8 @@ export default {
 <template>
     <a href="/">Go back</a>
     <Movie
-        :nome="store.movieList[currentId]?.name"
-        :id="store.movieList[currentId]?.id"
+        :nome="store.movieList.find(e => e.id == currentId)?.name"
+        
     ></Movie>
     <button @click="debug()">Test</button>
 </template>
@@ -45,3 +45,5 @@ export default {
 {{ $route.params.id }} 
 
 // :nome="store.movieList[currentId].name"
+// :id="store.movieList[currentId]?.id"
+
